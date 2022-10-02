@@ -1,0 +1,105 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    min-height: 100vh;
+    background: url('./images/blurry-gradient.svg');
+    background-size: cover;
+    font-family: 'Lato', sans-serif;
+}
+
+:root {
+    --board-width: 100%;
+    --board-height:  calc(100% - 50px);
+    --board-elements: 8;
+    --board-elements-displayed: 4;
+    --board-elements-width: 100%;
+    --board-elements-height: calc(100%/var(--board-elements-displayed));
+    --board-elements-height: 220px;
+    /* --animation-speed: 1s; */
+    --board-animation-duration: calc(var(--board-elements) * var(--animation-speed));
+
+
+}
+
+
+.container {
+    position: fixed;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    max-width: 600px;
+}
+
+.container .header {
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 70px;
+    background: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+    color: #fff;
+    z-index: 1;
+
+}
+
+.container .board {
+    width: var(--board-width);
+    height: var(--board-height);
+    background: #fff;
+
+}
+
+ .tiles {
+    width: 100%;
+    height: 100%;
+    animation: scrolling var(--board-animation-duration) linear infinite;
+}
+
+@keyframes scrolling {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        /* transform: translateY(calc(-1 * var(--board-elements-height) * var(--board-elements))); */
+        transform: translateY(-100%);
+    
+    }
+}
+
+.container .board .tiles .row {
+    display: flex;
+    width: 100%;
+    height: calc(100% / 4);
+
+}
+
+
+.container .board .tiles .row .cell{
+     flex: 1;
+     border: 1px solid #555;
+     cursor: pointer;
+}
+
+.container .board .row .cell.black {
+    background-color: #111;
+}
+
+
+
+
+
+.red{
+    background-color: red;
+}
+
