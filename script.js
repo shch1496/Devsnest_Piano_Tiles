@@ -19,8 +19,9 @@
     mediumMode.addEventListener("click", handleMediumMode);
     hardMode.addEventListener("click", handleHardMode);
     btnTryAgain.addEventListener("click", handleTryAgain);
+    // window.addEventListener("keydown", handleKeyPressed);
 
-
+    console.log(canvasHeight, canvasWidth)
     
     
 
@@ -30,7 +31,7 @@
     let score = 0;
     let rect;
     let maxSpeed = 20;
-
+    let keyPressed = ""
 
 
 openModal.addEventListener('click', ()=>{
@@ -93,7 +94,7 @@ modal.showModal();
 
             if(mouseX >= this.x && mouseX <= xx && mouseY>=this.y && mouseY<=yy){
 
-                console.log(xx, yy);
+            
                 return true;
             }
         }
@@ -171,6 +172,13 @@ function addTiles(num){
                             scoreHeader.innerHTML = score;
                         }
                       
+                    }else{
+
+                        //game over
+                        clearInterval(animateInterval)
+                        scoreModal.textContent = score;
+                        openModal.dispatchEvent(new Event("click")); 
+                        
                     }
 
                     mx =0;
@@ -201,12 +209,10 @@ function addTiles(num){
     //    console.log(event.clientX, event.clientY)
         let rect = canvas.getBoundingClientRect();
 
-        console.log(rect.left, rect.top)
         mx = event.clientX - rect.left;
         my = event.clientY - rect.top;
-       
-        console.log(mx, my)
-        console.log("Canvas clicked")
+    
+        console.log(canvas.width, canvas.height)
     }
 
 
@@ -255,6 +261,34 @@ function handleTryAgain() {
  
 }
 
+
+// function handleKeyPressed(event){
+//           let  key  = event.key
+//            key = key.toLowerCase();
+
+//            if(key == "a" || key == "s" || key=="d" || key=="f"){
+//                keyPressed = key;
+//            }
+
+   
+
+// }
+
+
+window.onresize = updateCanvas;
+
+updateCanvas();
+
+function updateCanvas() {
+
+    var cs = getComputedStyle(canvas);
+    var width = parseInt(cs.getPropertyValue('width'), 10);
+    var height = parseInt(cs.getPropertyValue('height'), 10);
+    
+    canvasWidth = canvas.width = width;
+    canvasHeight = canvas.height = height;
+    
+}
 
 
 })()
