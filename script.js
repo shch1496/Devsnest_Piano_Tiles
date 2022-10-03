@@ -21,7 +21,7 @@
     hardMode.addEventListener("click", handleHardMode);
     btnTryAgain.addEventListener("click", handleTryAgain);
 
-    // window.addEventListener("keydown", handleKeyPressed);
+    window.addEventListener("keydown", handleKeyPressed);
 
 
     
@@ -69,15 +69,17 @@ modal.showModal();
             set tileSpeed(speed){
                 this.speed = speed;
             }
+
         }
        
     
     class Tile {
-        constructor(position, width, lane){
+        constructor(position, width, lane, randomLane){
             this.y = position;
             this.x = lane;
             this.width = width;
             this.height = width + (width/4);
+            this.randomLane = randomLane;
 
         }
 
@@ -104,6 +106,14 @@ modal.showModal();
         get tilePosition(){
             return this.y;
         }
+
+        get tileLane(){
+            return this.x;
+        }
+
+        get tileColumnNumber(){
+            return this.randomLane;
+        }
     }
 
 //    let column = new Column(4, speed);
@@ -116,7 +126,7 @@ function addTiles(num){
   
     for(let i=0; i< num; i++){
         let randomLane = Math.floor(Math.random() * (4) + 1)
-        tiles[i] = new Tile(-1*(column.tileHeight*i), column.tileSize, column.getLane(randomLane))
+        tiles[i] = new Tile(-1*(column.tileHeight*i), column.tileSize, column.getLane(randomLane), randomLane)
     }
 }
 
@@ -190,7 +200,79 @@ function addTiles(num){
                    
                 }
 
-           
+                //handle keyboard events
+            if(keyPressed){
+                if(tiles.length == 1){
+                    //Game won
+                     
+                    score+=1
+                
+                    scoreModal.textContent = score;
+                    gameResult.textContent ="Hurray! Congrats";
+                    clearInterval(animateInterval)
+                    openModal.dispatchEvent(new Event("click")); 
+                }else{
+                        
+
+                    if(keyPressed === "a" &&  tiles[i].tileColumnNumber===1 ){
+                        tiles.splice(0,1)
+                                score++;
+                                if(speed< maxSpeed){
+                                    speed += 1;
+                                    
+                                }else{
+                                    speed = maxSpeed;
+                                }
+    
+                                column.tileSpeed = speed;
+                                scoreHeader.innerHTML = score;
+                    }else if(keyPressed === "s" &&  tiles[i].tileColumnNumber===2 ){
+    
+                        tiles.splice(0,1)
+                        score++;
+                        if(speed< maxSpeed){
+                            speed += 1;
+                            
+                        }else{
+                            speed = maxSpeed;
+                        }
+    
+                        column.tileSpeed = speed;
+                        scoreHeader.innerHTML = score;
+                    }else if(keyPressed === "d" &&  tiles[i].tileColumnNumber===3){
+    
+                        tiles.splice(0,1)
+                        score++;
+                        if(speed< maxSpeed){
+                            speed += 1;
+                            
+                        }else{
+                            speed = maxSpeed;
+                        }
+    
+                        column.tileSpeed = speed;
+                        scoreHeader.innerHTML = score;
+    
+                    }else if(keyPressed === "f" &&  tiles[i].tileColumnNumber===4){
+    
+                        tiles.splice(0,1)
+                        score++;
+                        if(speed< maxSpeed){
+                            speed += 1;
+                            
+                        }else{
+                            speed = maxSpeed;
+                        }
+    
+                        column.tileSpeed = speed;
+                        scoreHeader.innerHTML = score;
+                        
+                    }
+                }
+            
+                
+
+               }
              }
           
         }
@@ -266,17 +348,17 @@ function handleTryAgain() {
 }
 
 
-// function handleKeyPressed(event){
-//           let  key  = event.key
-//            key = key.toLowerCase();
+function handleKeyPressed(event){
+          let  key  = event.key
+           key = key.toLowerCase();
 
-//            if(key == "a" || key == "s" || key=="d" || key=="f"){
-//                keyPressed = key;
-//            }
+           if(key == "a" || key == "s" || key=="d" || key=="f"){
+               keyPressed = key;
+           }
 
    
 
-// }
+}
 
 
 window.onresize = updateCanvas;
