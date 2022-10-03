@@ -29,7 +29,7 @@
     let column;
     let score = 0;
     let rect;
-    let maxSpeed = 10;
+    let maxSpeed = 20;
 
 
 
