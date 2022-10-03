@@ -250,6 +250,7 @@ button{
         cursor: pointer;
         padding: 1rem 1rem;
         font-size: 1em;
+        max-width: 60%;
     }
 
     #open-modal {
