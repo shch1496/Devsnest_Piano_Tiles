@@ -39,7 +39,7 @@ modal.showModal();
 })
  
 
-    
+
 
     canvas.addEventListener("click", handleMouseClick)
            //Track
@@ -289,6 +289,5 @@ function updateCanvas() {
     canvasHeight = canvas.height = height;
     
 }
-
 
 })()
