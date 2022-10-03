@@ -115,7 +115,7 @@ select {
  /* overlay */
 .upperpart{
     width: 100%;
-    height: 50vh;
+    height: 45vh;
     background-color: black;
     display: flex;
     justify-content: center;
@@ -278,6 +278,9 @@ button{
 @media only screen and (max-width: 600px) {
     html {
         font-size: 0.6rem;
+    }
+    .img {
+        height: 100px;
     }
     
 }
