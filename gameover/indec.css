@@ -1,0 +1,29 @@
+.modal{
+    background-color: rgb(21, 23, 24);
+    border-radius: 10px;
+    border-color: white;
+    text-align: center;
+}
+
+.img{
+    width: 100%;
+    min-width: 30%; 
+    text-align: center;
+    border-radius: 10px;
+}
+.score{
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+}
+
+.try{
+   
+    border-radius: 10px;
+    background-color: rgb(8, 30, 78);
+    color: antiquewhite;
+    border-color: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 1em;
+}
