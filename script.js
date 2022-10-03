@@ -15,13 +15,15 @@
     let scoreHeader = document.querySelector("#score");
 
     const scoreModal = document.querySelector("#score-modal")
+    const gameResult = document.querySelector(".game-result")
     easyMode.addEventListener("click", handleEasyMode);
     mediumMode.addEventListener("click", handleMediumMode);
     hardMode.addEventListener("click", handleHardMode);
     btnTryAgain.addEventListener("click", handleTryAgain);
+
     // window.addEventListener("keydown", handleKeyPressed);
 
-    console.log(canvasHeight, canvasWidth)
+
     
     
 
@@ -29,7 +31,7 @@
     let mx, my;
     let column;
     let score = 0;
-    let rect;
+
     let maxSpeed = 20;
     let keyPressed = ""
 
@@ -140,6 +142,7 @@ function addTiles(num){
 
                     clearInterval(animateInterval)
                     scoreModal.textContent = score;
+                    gameResult.textContent ="Oops! Better Luck Next Time";
                     openModal.dispatchEvent(new Event("click")); 
                     
                     
@@ -154,7 +157,7 @@ function addTiles(num){
                             score+=1
                         
                             scoreModal.textContent = score;
-            
+                            gameResult.textContent ="Hurray! Congrats";
                             clearInterval(animateInterval)
                             openModal.dispatchEvent(new Event("click")); 
                     
@@ -177,6 +180,7 @@ function addTiles(num){
                         //game over
                         clearInterval(animateInterval)
                         scoreModal.textContent = score;
+                        gameResult.textContent ="Oops! Better Luck Next Time";
                         openModal.dispatchEvent(new Event("click")); 
                         
                     }
@@ -212,7 +216,7 @@ function addTiles(num){
         mx = event.clientX - rect.left;
         my = event.clientY - rect.top;
     
-        console.log(canvas.width, canvas.height)
+        // console.log(canvas.width, canvas.height)
     }
 
 

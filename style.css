@@ -243,6 +243,12 @@ button{
         font-weight: 700;
         color: white;
     }
+
+    .game-result{
+        color: white;
+        font-size: 2rem;
+        padding: 1.5rem;
+    }
     
     .try{
        
