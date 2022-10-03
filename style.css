@@ -248,7 +248,7 @@ button{
         color: antiquewhite;
         border-color: none;
         cursor: pointer;
-        padding: 10px 20px;
+        padding: 1rem 1rem;
         font-size: 1em;
     }
 
