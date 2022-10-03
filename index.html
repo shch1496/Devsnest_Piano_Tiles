@@ -5,37 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-    <title>Devsnest Piano Tiles</title>
+    <title>Piano Tiles Canvas</title>
 </head>
 <body>
-    <main class="container">
-        <div class="header">
-            <div>Devsnest Piano Tiles</div>
-            <div><span id="player-name">Shubham's</span> Score: <span id="player-score">0</span></div>
-        </div>
-
-        <div class="board" id="board">
-           <div class="tiles">
-           
-            </div>
-        </div>
-    </main>
-
-
-    <template id="templates">
-        <div class="row">
     
-        </div>
 
-        <div class="cell">
+    <canvas id="canvas" width="400" height="700"></canvas>
 
-        </div>
-    </template>
+    <div id="overlay">
+        <div class="upperpart">
+            <h1 class="heading">Piano Tiles</h1>
+          </div>
+          <div class="container">
+            <h2>Select Difficulty</h2>
+            <button class="easy">Easy</button>
+            <button class="medium">Medium</button>
+            <button class="hard">Hard</button>
+          </div>
+          <div class="lowerpart"></div>
+    </div>
+    
+    <button id="open-modal">open modal</button>
+    <dialog class="modal" >
+        
+            <img src="./Assets/game-over.gif" class="img">
+            <p class="score">Score: <span id="score-modal"></span></p>
+            <button value="Try Again" class="try">Try Again</button>
+          
+    </dialog>
 
 
-    <script type="text/javascript" src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
